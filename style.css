@@ -625,11 +625,9 @@ footer p{
     }
 }
 @media only screen and (max-width: 443px){
-    .story-info{
-        line-height: 25px;
-        font-size: 17px;
-    }
-    .story-info>img{
-        max-width: 120px;
+        h4{
+        margin: 3px;
+        font-size: 20px;
+        line-height: 14px;
     }
 }
