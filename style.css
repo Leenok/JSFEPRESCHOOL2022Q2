@@ -283,7 +283,10 @@ footer p{
     border-radius: 5px;
     background-color: #892E19;
 }
-.menu-mobile, .footer-mob{
+.footer-mob{
+    display: none;
+}
+.m-menu, .logo-mobile{
     display: none;
 }
 @media only screen and (max-width: 996px){
@@ -346,55 +349,9 @@ footer p{
     }
 }
 @media only screen and (max-width: 392px) {
-    .container, .menu-m-it{
-        display: none;
-    }
-    main, footer, header, section{
+    
+    main, footer, section{
         max-width: 390px;
-    }
-    .footer-mob, .strelka-min{
-        display: inline;
-    }
-    .menu-mobile{
-        display: none;
-        background-color: rgba(221, 221, 221, 0.185);
-    }
-    .firs-m-menu{
-        position: absolute;
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10px;
-    }
-    .firs-m-menu>a{
-       padding: 20px;
-    }
-    .firs-m-menu>a:hover{
-        background-color: rgba(255, 99, 71, 0.466);
-    }
-    .menu-m-it{       
-        background-color: #F2785C;   
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        padding: 44px 15px 30px 44px;
-    }
-    .menu-m-it>a{
-        margin: 5px;
-        padding: 5px;
-        text-decoration: none;
-        color: white;
-        font-size: 16px;
-    }
-    .menu-m-it>a:hover{
-        background-color: rgb(158, 58, 40);
-    }
-    .menu-m-it>img{
-        padding-right: 120px;
-    }
-    .menu-m-it>img:hover{
-        background-color: teal;
     }
     button{
         width: 92px;
@@ -410,6 +367,7 @@ footer p{
         max-width: 360px;
         height: 48px;
         border-radius: 16px;
+        margin-top: 50px;
     }
     .start-planning>button{
         margin: 9px;
@@ -422,6 +380,7 @@ footer p{
         margin-top: 17px;
         margin-left: 17px;
     }
+
     .desktop{
         height: 250px;
         background-image: url("image/garrett-parker2.jpg");
@@ -429,9 +388,9 @@ footer p{
     }
     .desktop-info>h1, .desktop-info>p{
         display: none;
-    }
+    } 
     .desktop-info{
-        padding: 142px 15px 61px 15px;
+        padding-top: 90px;
     }
     .steps{
         margin: 20px;
@@ -503,7 +462,6 @@ footer p{
         background-color: #F2785C;
         margin: 3px;
     }
-
     /* story*/
     .story-fon{
         background-image: url("image/fon-story-mob.jpg");
@@ -529,8 +487,8 @@ footer p{
         margin: 3px;
     }
     .story-info img{
-        max-width: 155px;
-        max-height: 130px;
+        width: 155px;
+        height: 130px;
         text-align: center;
         border-radius: 16px;
         -webkit-box-shadow: 0 12px 8px -4px rgba(6, 24, 37, 0.6);
@@ -550,7 +508,6 @@ footer p{
         font-size: 14px;
         line-height: 19px;
     }
-
     /* footer */
     footer{
         margin: -100px auto ;
@@ -583,6 +540,9 @@ footer p{
     }
 }
 @media only screen and (max-width: 520px){
+    .container>button, .logo-mine{
+        display: none;
+    }
     .logo>img{
         width: 30px;
     }
@@ -602,16 +562,11 @@ footer p{
     .list-item{
         max-height: 500px;
     }
-}
-@media only screen and (max-width: 520px){
     .steps-info>div{
         margin: 7px;
     }
     .steps-info>p{
         font-size: 15px;
-    }
-    header{
-        width: 95%;
     }
     button{
         margin: 2px 5px;
@@ -623,9 +578,78 @@ footer p{
     .menu ul li{
         padding: 3px;
     }
+    /* example hamber*/
+    .container{
+        justify-content: space-around;
+        
+    }
+    header {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .m-menu, .logo-mobile{
+        display: inline;
+    }
+    .menu-btn {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index:2;
+        overflow: hidden;
+    }
+    .menu-btn span {
+        width: 30px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #222222;
+        transition: all 0.5s;  
+    }
+    .menu-btn span:nth-of-type(2) {
+        top: calc(50% - 5px);
+    }
+    .menu-btn span:nth-of-type(3) {
+        top: calc(50% + 5px);
+    }
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+        background: #b13111;
+        transform: translateX(-100%);
+        transition: transform 0.5s;    
+    }
+    .menu.active {
+        transform: translateX(0);
+    }
+    .menu ul{
+        flex-direction: column;
+    }
+    .menu li {
+        list-style-type: none;
+    }
+    /* Меняем гамбургер иконку, когда меню открыто */
+    .menu-btn.active span:nth-of-type(1) {
+    display: none;
+    }
+    .menu-btn.active span:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);  
+    }
+    .menu-btn.active span:nth-of-type(3) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg); 
+    }
+
 }
+
 @media only screen and (max-width: 443px){
-        h4{
+    h4{
         margin: 3px;
         font-size: 20px;
         line-height: 14px;
